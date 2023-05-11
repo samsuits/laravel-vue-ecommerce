@@ -1,7 +1,6 @@
 <header class="flex justify-between bg-slate-800 shadow-md text-white">
     <div>
-                <a href="/" class="block py-navbar-item pl-5"> Logo </a>
-{{--                <a href="{{ route('home') }}" class="block py-navbar-item pl-5"> Logo </a>--}}
+        <a href="/" class="block py-navbar-item pl-5"> Logo </a>
     </div>
     <!-- Responsive Menu -->
     <div
@@ -50,25 +49,7 @@
                         x-transition
                         class="z-10 right-0 bg-slate-800 py-2"
                     >
-                        <li>
-                            {{--                            <a href="{{ route('profile') }}" class="flex px-3 py-2 hover:bg-slate-900">--}}
-                            {{--                                <svg--}}
-                            {{--                                    xmlns="http://www.w3.org/2000/svg"--}}
-                            {{--                                    class="h-5 w-5 mr-2"--}}
-                            {{--                                    fill="none"--}}
-                            {{--                                    viewBox="0 0 24 24"--}}
-                            {{--                                    stroke="currentColor"--}}
-                            {{--                                    stroke-width="2"--}}
-                            {{--                                >--}}
-                            {{--                                    <path--}}
-                            {{--                                        stroke-linecap="round"--}}
-                            {{--                                        stroke-linejoin="round"--}}
-                            {{--                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"--}}
-                            {{--                                    />--}}
-                            {{--                                </svg>--}}
-                            {{--                                My Profile--}}
-                            {{--                            </a>--}}
-                        </li>
+
 
                         <li class="hover:bg-slate-900">
                             <!-- Authentication -->
@@ -179,28 +160,7 @@
                         x-cloak
                         class="absolute z-10 right-0 bg-slate-800 py-2 w-48"
                     >
-                        <li>
-{{--                            <a--}}
-{{--                                href="{{ route('profile') }}"--}}
-{{--                                class="flex px-3 py-2 hover:bg-slate-900"--}}
-{{--                            >--}}
-{{--                                <svg--}}
-{{--                                    xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                    class="h-5 w-5 mr-2"--}}
-{{--                                    fill="none"--}}
-{{--                                    viewBox="0 0 24 24"--}}
-{{--                                    stroke="currentColor"--}}
-{{--                                    stroke-width="2"--}}
-{{--                                >--}}
-{{--                                    <path--}}
-{{--                                        stroke-linecap="round"--}}
-{{--                                        stroke-linejoin="round"--}}
-{{--                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"--}}
-{{--                                    />--}}
-{{--                                </svg>--}}
-{{--                                My Profile--}}
-{{--                            </a>--}}
-                        </li>
+
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

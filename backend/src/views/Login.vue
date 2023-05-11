@@ -1,5 +1,5 @@
 <template>
-    <GuestLayout title="Sign in to your account">
+    <GuestLayout title="Sign in to admin panel">
         <form class="space-y-6" method="POST" @submit.prevent="login">
             <div v-if="errorMsg" class="flex items-center justify-between py-3 px-5 bg-red-500 text-white rounded">
                 {{ errorMsg }}
