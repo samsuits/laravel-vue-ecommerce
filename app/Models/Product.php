@@ -30,4 +30,9 @@ class Product extends Model
     {
         return 'slug';
     }
+
+    public function ratings()
+    {
+        return $this->hasMany('App\Models\Rating');
+    }
 }

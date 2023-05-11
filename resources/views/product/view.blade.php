@@ -89,7 +89,7 @@
                     {{$product->title}}
                 </h1>
                 <div class="text-xl font-bold mb-6">${{$product->price}}</div>
-                
+
 
                 <div class="mb-6" x-data="{expanded: false}">
                     <div
@@ -107,8 +107,11 @@
                             x-text="expanded ? 'Read Less' : 'Read More'"
                         ></a>
                     </p>
+                    @livewire('product-ratings', ['product' => $product], key($product->id))
+
                 </div>
             </div>
         </div>
     </div>
+    @livewireScripts
 </x-app-layout>
