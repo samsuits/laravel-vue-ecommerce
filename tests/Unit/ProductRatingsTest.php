@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Http\Livewire\ProductRatings;
-use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Product;
 use App\Models\Rating;
 use App\Models\User;
