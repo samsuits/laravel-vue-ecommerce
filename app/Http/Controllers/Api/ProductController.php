@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductListResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Api\Product;
+use Illuminate\Http\Response;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
@@ -17,9 +18,9 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index()
+    public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         $perPage = request('per_page', 10);
         $search = request('search', '');
@@ -38,10 +39,11 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param ProductRequest $request
+     * @throws \Exception
+     * @return Response|ProductResource
      */
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request): Response|ProductResource
     {
         $data = $request->validated();
         $data['created_by'] = $request->user()->id;
@@ -63,8 +65,8 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return ProductResource
      */
     public function show(Product $product)
     {
@@ -74,11 +76,12 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @param ProductRequest $request
+     * @param Product $product
+     * @throws \Exception
+     * @return Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product): Response|ProductResource
     {
         $data = $request->validated();
         $data['updated_by'] = $request->user()->id;
@@ -106,10 +109,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): Response
     {
         $product->delete();
 

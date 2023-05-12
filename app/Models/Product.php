@@ -26,12 +26,12 @@ class Product extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
 
-    public function ratings()
+    public function ratings(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany('App\Models\Rating');
     }

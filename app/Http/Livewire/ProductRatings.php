@@ -19,13 +19,13 @@ class ProductRatings extends Component
 
     ];
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $comments = Rating::where('product_id', $this->product->id)->where('status', 1)->with('user')->get();
         return view('livewire.product-ratings', compact('comments'));
     }
 
-    public function mount()
+    public function mount(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         if(auth()->user()){
             $rating = Rating::where('user_id', auth()->user()->id)->where('product_id', $this->product->id)->first();
@@ -38,7 +38,7 @@ class ProductRatings extends Component
         return view('livewire.product-ratings');
     }
 
-    public function delete($id)
+    public function delete($id): void
     {
         $rating = Rating::where('id', $id)->first();
         if ($rating && ($rating->user_id == auth()->user()->id)) {
@@ -51,7 +51,7 @@ class ProductRatings extends Component
         }
     }
 
-    public function rate()
+    public function rate(): void
     {
         $rating = Rating::where('user_id', auth()->user()->id)->where('product_id', $this->product->id)->first();
         $this->validate();

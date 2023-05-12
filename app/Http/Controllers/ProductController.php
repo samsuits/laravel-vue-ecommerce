@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $products = Product::query()
             ->where('published', '=', 1)
@@ -18,7 +18,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function view(Product $product)
+    public function view(Product $product): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('product.view', ['product' => $product]);
     }

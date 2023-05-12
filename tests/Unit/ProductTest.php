@@ -15,7 +15,19 @@ class ProductTest extends TestCase
      */
     protected function authenticate(): string
     {
-        if (!Auth::attempt(['email' => 'mike.purifoy@teleworm.us', 'password' => 'Oongies9mee'])) {
+        $email = time() . '@example.com';
+        $plainPassword = '123456789';
+        $password = bcrypt($plainPassword);
+
+        $user = User::create([
+            'name' => 'Test',
+            'email' => $email,
+            'password' => $password,
+            'email_verified_at' => now(),
+            'is_admin' => true
+        ]);
+
+        if (!Auth::attempt(['email' => $email, 'password' => $plainPassword])) {
             return response(['message' => 'Login credentials are invaild']);
         }
 

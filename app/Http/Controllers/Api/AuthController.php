@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(Request $request): \Illuminate\Foundation\Application|\Illuminate\Http\Response|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory
     {
 
         $credentials = $request->validate([
@@ -47,7 +47,7 @@ class AuthController extends Controller
 
     }
 
-    public function logout()
+    public function logout(): \Illuminate\Foundation\Application|\Illuminate\Http\Response|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory
     {
         /** @var \App\Models\User $user */
         $user = Auth::user();
@@ -56,7 +56,7 @@ class AuthController extends Controller
         return response('', 204);
     }
 
-    public function getUser(Request $request)
+    public function getUser(Request $request): UserResource
     {
         return new UserResource($request->user());
     }
