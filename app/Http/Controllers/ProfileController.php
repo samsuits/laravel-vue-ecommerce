@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,30 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function view(Request $request
+    ): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application {
+        /** @var User $user */
+        $user = $request->user();
+
+        return view('profile.view', compact($user));
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+
+        $request->session()->flash('flash_message', 'Profile was successfully updated.');
+
+        return redirect()->route('profile');
+
+    }
+
+    public function passwordUpdate(Request $request)
+    {
+        $request->session()->flash('flash_message', 'Your password was successfully updated.');
+
+        return redirect()->route('profile');
+    }
+
     /**
      * Display the user's profile form.
      */
