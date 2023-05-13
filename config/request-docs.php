@@ -12,7 +12,7 @@ return [
     */
     'url' => 'request-docs',
     'middlewares' => [
-        // \Rakutentech\LaravelRequestDocs\NotFoundWhenProduction::class,
+
     ],
 
     //Use only routes where ->uri start with next string Using Str::startWith( . e.g. - /api/mobile
@@ -33,7 +33,6 @@ return [
     'hide_logs_data' => false,
     'hide_models_data' => false,
 
-    // https://github.com/rakutentech/laravel-request-docs/pull/92
     // When rules are put in other method than rules()
     'rules_methods' => [
         'rules'
